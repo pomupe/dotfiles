@@ -1,0 +1,8 @@
+[push]
+	default = simple
+[core]
+	excludesfile = ~/.gitignore
+[merge]
+	ff = false
+[pull]
+	ff = only
