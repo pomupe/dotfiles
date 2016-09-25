@@ -1,6 +1,7 @@
 #!/bin/sh
 
 ln -s dotfiles/.vimrc ~/.vimrc
+ln -s dotfiles/dein.toml ~/dein.toml
 ln -s dotfiles/.gitignore ~/.gitignore
 ln -s dotfiles/.gitconfig ~/.gitconfig
 ln -s dotfiles/.gitconfig.linux ~/.gitconfig.os
