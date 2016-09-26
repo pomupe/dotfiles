@@ -13,6 +13,28 @@ hook_add = '''
 # [[plugins]]
 # repo = 'tomasr/molokai'
 
+# Git wrapper
+[[plugins]]
+repo =  'tpope/vim-fugitive'
+hook_add = '''
+  " Always show the status line
+  set laststatus=2
+  " Show file name
+  set statusline=%F
+  " Show [help] with opening help files
+  set statusline+=%h
+  " Right justify
+  set statusline+=%=
+  " Show line number / number of lines
+  set statusline+=[%l/%L]
+  " Show git branch name
+  set statusline+=%{fugitive#statusline()}
+  " Show type of file
+  set statusline+=%y
+  " Show file encoding and EOL types
+  set statusline+=[%{&fenc}:%{&ff}]
+'''
+
 # Completion
 [[plugins]]
 repo = 'Shougo/neocomplete'
