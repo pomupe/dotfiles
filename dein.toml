@@ -67,3 +67,8 @@ hook_add = '''
 [[plugins]]
 repo = 'vim-scripts/bats.vim'
 on_ft = ['sh']
+
+## ruby
+[[plugins]]
+repo = 'nelstrom/vim-textobj-rubyblock'
+on_ft = ['ruby']
