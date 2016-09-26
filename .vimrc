@@ -44,36 +44,96 @@ endif
 au MyAutoCmd VimEnter * call dein#call_hook('post_source')
 " }}}
 
-" Enable syntax highlighting
-syntax on
-" Enable line numbers
-set number
+" General {{{
+" Enable indent for specific file types
+filetype indent on
+
+" Set to auto road when a file is changed from the outside
+set autoread
+" }}}
+
+" Interface {{{
+" Set 7 liens to the cursor
+set so=7
+
+" Turn on the wild menu
+set wildmenu
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+if has("win16") || has("win32")
+  set wildignore+=.git\*,.hg\*,.svn\*
+else
+  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+endif
+
 " Allow backspace in insert mode
 set backspace=indent,eol,start
+
+" Ignore case of searches
+set ignorecase
+
+" Override the ignorecase option when the pattern contains upper case
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Highlight dynamically as pattern is typed
+set incsearch
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+
+" Show matching brackets when text indicator is over them
+set showmatch
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+
+" Add a bit extra margin to the left
+set foldcolumn=1
+" }}}
+
+" Colors and Fonts {{{
+" Enable syntax highlighting
+syntax on
+
+" Set UTF-8 without BOM as standard encoding
+set encoding=utf-8 nobomb
+" set fileencodings=ucs-bom,iso-2022-jp,utf-8,cp932,euc-jp,utf-16le,utf-16be,latin1
+
+" Set Unix as the standard file type
+set ffs=unix,dos,mac
+" }}}
+
+"""""""""""""""
+" TODO
+"""""""""""""""
+" Enable line numbers
+set number
+
 set expandtab
 
 " Make tabs as wide as two spaces
-set tabstop=2
 set shiftwidth=2
+set tabstop=2
+
 " Enable smart indent
 set autoindent
 set smartindent
-" Highlight searches
-set hlsearch
-" Ignore case of searches
-set ignorecase
-" Highlight dynamically as pattern is typed
-set incsearch
-" Use UTF-8 without BOM
-set encoding=utf-8 nobomb
-" set fileencodings=ucs-bom,iso-2022-jp,utf-8,cp932,euc-jp,utf-16le,utf-16be,latin1
+
 " Visualize tabs and spaces
 set list
 set listchars=tab:>-,trail:-,nbsp:%
 
-"""
-" Language
-"""
+" Key map {{{
+" Fast saving
+nmap <Space>w :w<cr>
+" }}}
 
 " Language {{{
 "" Ruby
