@@ -1,6 +1,6 @@
 " Initialize plugins with dein.vim {{{
 " Disable vi compatibility
-if ! &compatible | set nocompatible | endif
+if &compatible | set nocompatible | endif
 
  " Reset autocmd
 augroup MyAutoCmd
@@ -41,7 +41,7 @@ if has('vim_starting')
 endif
 
 " lazyプラグインがvim起動時にsourceされてしまう場合(on_ft対象のファイルを開くときなど)でも hook_post_source が機能するようにする
-au MyAutoCmd VimEnter * call dein#call_hook('post_source')
+autocmd MyAutoCmd VimEnter * call dein#call_hook('post_source')
 " }}}
 
 " General {{{
