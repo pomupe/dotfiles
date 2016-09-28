@@ -151,7 +151,7 @@ set listchars=tab:>-,trail:-,nbsp:%
 nnoremap <Space>w :w<cr>
 
 " Disable highlight when <Esc><Esc> is pressed
-nnoremap <Esc><Esc> :noh<CR>
+nnoremap <silent> <Esc><Esc> :noh<CR>
 
 " Smart way to move between windows
 nnoremap <C-j> <C-W>j
