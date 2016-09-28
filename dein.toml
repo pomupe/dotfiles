@@ -13,6 +13,25 @@ hook_add = '''
 # [[plugins]]
 # repo = 'tomasr/molokai'
 
+# Unite: search and display arbitrary sources
+[[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'neomru.vim'
+hook_add = '''
+  " Set <Space>u as Unite prefix key
+  nnoremap [unite]  <Nop>
+  nmap     <Space>u [unite]
+  " Display buffers when [unite]b is pressed
+  nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+  " Display MRU files when [unite]m is pressed
+  nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
+'''
+
+# Unite MRU sources
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_path = '.*'
+
 # Git wrapper
 [[plugins]]
 repo =  'tpope/vim-fugitive'
