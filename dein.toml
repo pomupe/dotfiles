@@ -17,22 +17,28 @@ hook_add = '''
 [[plugins]]
 repo =  'tpope/vim-fugitive'
 hook_add = '''
+  " Status line setup {{{
   " Always show the status line
   set laststatus=2
-  " Show file name
+  " Display file name
   set statusline=%F
-  " Show [help] with opening help files
+  " Display [help] with opening help files
   set statusline+=%h
+  " Display [+] if file is modified
+  set statusline+=%m
+  " show [RO] if file is readonly
+  set statusline+=%r
   " Right justify
   set statusline+=%=
-  " Show line number / number of lines
+  " Display line number / number of lines
   set statusline+=[%l/%L]
-  " Show git branch name
+  " Display git branch name
   set statusline+=%{fugitive#statusline()}
-  " Show type of file
+  " Display type of file
   set statusline+=%y
-  " Show file encoding and EOL types
+  " Display file encoding and EOL types
   set statusline+=[%{&fenc}:%{&ff}]
+  " }}}
 '''
 
 # Completion
@@ -72,3 +78,5 @@ on_ft = ['sh']
 [[plugins]]
 repo = 'nelstrom/vim-textobj-rubyblock'
 on_ft = ['ruby']
+
+# vim: foldmethod=marker
