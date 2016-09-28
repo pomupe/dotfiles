@@ -59,6 +59,12 @@ set so=7
 " Turn on the wild menu
 set wildmenu
 
+" Enable line numbers
+set number
+
+" Heighet of the command bar
+set cmdheight=2
+
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
 if has("win16") || has("win32")
@@ -110,13 +116,18 @@ set encoding=utf-8 nobomb
 set ffs=unix,dos,mac
 " }}}
 
-"""""""""""""""
-" TODO
-"""""""""""""""
-" Enable line numbers
-set number
+" File backup {{{
+" Turn backup off
+set nobackup
+set nowritebackup
+" }}}
 
+" Text, tab and indent related {{{
+" Use spaces instead of tabs
 set expandtab
+
+" Be smart when using tabs
+set smarttab
 
 " Make tabs as wide as two spaces
 set shiftwidth=2
@@ -126,19 +137,36 @@ set tabstop=2
 set autoindent
 set smartindent
 
+" Wrap lines
+set wrap
+set lbr
+
 " Visualize tabs and spaces
 set list
 set listchars=tab:>-,trail:-,nbsp:%
+" }}}
 
 " Key map {{{
 " Fast saving
-nmap <Space>w :w<cr>
+nnoremap <Space>w :w<cr>
+
+" Disable highlight when <Esc><Esc> is pressed
+nnoremap <Esc><Esc> :noh<CR>
+
+" Smart way to move between windows
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+
+" Close the current buffer
+nnoremap <Space>bd :bd<CR>
 " }}}
 
 " Language {{{
 "" Ruby
 " Add '?' to keywords
-au MyAutoCmd FileType ruby setl iskeyword+=?
+autocmd MyAutoCmd FileType ruby setl iskeyword+=?
 " }}}
 
 " vim: foldmethod=marker
