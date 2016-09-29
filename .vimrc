@@ -102,6 +102,9 @@ set novisualbell
 
 " Add a bit extra margin to the left
 set foldcolumn=1
+
+" No clearing uses the current backgroud color (setting for tmux)
+set t_ut=
 " }}}
 
 " Colors and Fonts {{{

@@ -81,6 +81,14 @@ on_i = 1
 repo = 'tyru/open-browser.vim'
 if = 'has("win32") || has("win64")'
 
+# Seemless navigation between tmux panes and vim splits
+[[plugins]]
+repo = 'christoomey/vim-tmux-navigator'
+if = 'has("unix")'
+#hook_add = '''
+#  nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
+#'''
+
 #####
 # Language
 #####
