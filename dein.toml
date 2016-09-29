@@ -76,6 +76,11 @@ repo = 'Shougo/neocomplete'
 if = 'has("lua")'
 on_i = 1
 
+# Open URI with browser
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+if = 'has("win32") || has("win64")'
+
 #####
 # Language
 #####
@@ -87,15 +92,16 @@ on_ft = ['toml']
 
 ## markdown
 [[plugins]]
-repo = 'joker1007/vim-markdown-quote-syntax'
+repo = 'tpope/vim-markdown'
 on_ft = ['markdown']
 
 [[plugins]]
-repo = 'rcmdnk/vim-markdown'
+repo = 'kannokanno/previm'
+depends = 'open-browser.vim'
+if = 'has("win32") || has("win64")'
 on_ft = ['markdown']
-depends = ['tabular', 'vim-markdown-quote-syntax']
 hook_add = '''
-  let g:vim_markdown_new_list_item_indent = 2
+  nnoremap <Space>p :PrevimOpen<cr>
 '''
 
 ## bash
