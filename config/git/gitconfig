@@ -2,10 +2,10 @@
   path = .gitconfig.user
   path = .gitconfig.os
 [push]
-	default = simple
+  default = simple
 [core]
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
 [merge]
-	ff = false
+  ff = false
 [pull]
-	ff = only
+  ff = only
