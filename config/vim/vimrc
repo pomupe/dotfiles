@@ -17,7 +17,8 @@ endif
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
 
 " Load plugins & create cache
-let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
+let s:rc_dir = expand('~/.vim/rc')
+let s:toml_file = s:rc_dir . '/dein.toml'
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir, [$MYVIMRC, s:toml_file])
   call dein#load_toml(s:toml_file)
@@ -58,6 +59,9 @@ set so=7
 
 " Turn on the wild menu
 set wildmenu
+
+" Show command in the status line
+set showcmd
 
 " Enable line numbers
 set number
@@ -164,6 +168,12 @@ nnoremap <C-l> <C-W>l
 
 " Close the current buffer
 nnoremap <Space>bd :bd<CR>
+
+" Insert blank line when <CR> is pressed
+nnoremap <CR> o<Esc>
+
+" Smart way to move command mode
+cnoremap <C-a> <Home>
 " }}}
 
 " Language {{{
