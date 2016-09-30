@@ -1,0 +1,3 @@
+[core]
+  editor = gvim.exe -c 'set fenc=utf-8'
+  autoCRLF = input
