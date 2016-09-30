@@ -127,6 +127,7 @@ set ffs=unix,dos,mac
 " Turn backup off
 set nobackup
 set nowritebackup
+set noundofile
 " }}}
 
 " Text, tab and indent related {{{
