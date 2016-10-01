@@ -86,6 +86,14 @@ on_i = 1
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 if = 'has("win32") || has("win64")'
+hook_add = '''
+  " Open-browser key mappings {{{
+  " disable netrw's gx mapping.
+  let g:netrw_nogx = 1
+  nmap gx <Plug>(openbrowser-smart-search)
+  vmap gx <Plug>(openbrowser-smart-search)
+  " }}}
+'''
 
 # Seemless navigation between tmux panes and vim splits
 [[plugins]]
