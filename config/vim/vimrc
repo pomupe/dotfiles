@@ -59,6 +59,10 @@ set so=7
 
 " Turn on the wild menu
 set wildmenu
+set wildmode=longest,list,full
+
+" Ignore case of completing in wild menu
+set wildignorecase
 
 " Show command in the status line
 set showcmd
@@ -109,6 +113,9 @@ set foldcolumn=1
 
 " No clearing uses the current backgroud color (setting for tmux)
 set t_ut=
+
+" Disable automatically insert the comment leader
+autocmd MyAutoCmd BufRead,BufNewFile * setlocal formatoptions-=cro
 " }}}
 
 " Colors and Fonts {{{
@@ -117,7 +124,6 @@ syntax on
 
 " Set UTF-8 without BOM as standard encoding
 set encoding=utf-8 nobomb
-" set fileencodings=ucs-bom,iso-2022-jp,utf-8,cp932,euc-jp,utf-16le,utf-16be,latin1
 
 " Set Unix as the standard file type
 set ffs=unix,dos,mac
@@ -152,6 +158,11 @@ set lbr
 " Visualize tabs and spaces
 set list
 set listchars=tab:>-,trail:-,nbsp:%
+
+" The cursor can be positioned where there is no actual character in Visual block mode
+if has('virtualedit')
+  set virtualedit+=block
+endif
 " }}}
 
 " Key map {{{
@@ -175,12 +186,24 @@ nnoremap <CR> o<Esc>
 
 " Smart way to move command mode
 cnoremap <C-a> <Home>
+
+" Highlight current word when <Space><Space> is pressed
+nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 " }}}
 
 " Language {{{
 "" Ruby
 " Add '?' to keywords
 autocmd MyAutoCmd FileType ruby setl iskeyword+=?
+" }}}
+
+" Windows {{{
+if has("win32") || has("win64")
+  " Share the clipboard and * register
+  set clipboard+=unnamed
+  " Automatically set the fileencoding from those found in the beginning
+  set fileencodings=ucs-bom,iso-2022-jp,utf-8,cp932,euc-jp,utf-16le,utf-16be,latin1
+endif
 " }}}
 
 " vim: foldmethod=marker
