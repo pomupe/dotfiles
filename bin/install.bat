@@ -1,6 +1,7 @@
 @echo off
 : Vim
 mklink /H %HOMEPATH%\_vimrc %HOMEPATH%\.dotfiles\config\vim\vimrc
+mklink /H %HOMEPATH%\_gvimrc %HOMEPATH%\.dotfiles\config\vim\gvimrc
 if not exist %HOMEPATH%\.vim\rc\ (
   mkdir %HOMEPATH%\.vim\rc
 )

@@ -1,0 +1,22 @@
+" Use the Ricty to font, height is 14pt, width is 7pt, character set Default
+set guifont=Ricty:h14:w7:cDEFAULT
+" Use twice the width of ASCII characters when display Japanese
+set ambiwidth=double
+" Remember the last position and the window size
+let g:save_window_file = expand('~/.vimwinpos')
+augroup SaveWindow
+  autocmd!
+  autocmd VimLeavePre * call s:save_window()
+  function! s:save_window()
+    let options = [
+      \ 'set columns=' . &columns,
+      \ 'set lines=' . &lines,
+      \ 'winpos ' . getwinposx() . ' ' . getwinposy(),
+      \ ]
+    call writefile(options, g:save_window_file)
+  endfunction
+augroup END
+
+if filereadable(g:save_window_file)
+  execute 'source' g:save_window_file
+endif
