@@ -6,7 +6,7 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'jpo/vim-railscasts-theme'
 hook_add = '''
-  au MyAutoCmd VimEnter * nested colorscheme railscasts
+  autocmd MyAutoCmd VimEnter * nested colorscheme railscasts
 '''
 
 # Colorscheme
@@ -34,6 +34,12 @@ hook_add = '''
   nnoremap <silent> [unite]n :<C-u>Unite file/new<CR>
   " Display registers when [unite]r is pressed
   nnoremap <silent> [unite]r :<C-u>Unite register<CR>
+  " Exit the unite buffer when <Esc><Esc> is pressed
+  augroup UniteAutoCmd
+    autocmd!
+    autocmd FileType unite nnoremap <silent> <buffer> <Esc><Esc> :q<CR>
+    autocmd FileType unite inoremap <silent> <buffer> <Esc><Esc> <Esc>:q<CR>
+  augroup END
   " }}}
 '''
 
