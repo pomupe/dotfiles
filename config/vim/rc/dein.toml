@@ -43,6 +43,7 @@ hook_add = '''
     autocmd!
     autocmd FileType unite nnoremap <silent> <buffer> <Esc><Esc> :q<CR>
     autocmd FileType unite inoremap <silent> <buffer> <Esc><Esc> <Esc>:q<CR>
+    autocmd FileType unite imap     <silent> <buffer> <C-l>      <Plug>(unite_complete)
   augroup END
   " }}}
 '''
