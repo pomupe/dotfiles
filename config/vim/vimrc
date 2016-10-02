@@ -51,6 +51,10 @@ filetype indent on
 
 " Set to auto road when a file is changed from the outside
 set autoread
+
+" Return to last edit position when opening files (You want this!)
+" See also :h last-position-jump
+autocmd MyAutoCmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " }}}
 
 " Interface {{{
@@ -165,7 +169,7 @@ if has('virtualedit')
 endif
 " }}}
 
-" Key map {{{
+" Key mapping {{{
 " Fast saving
 nnoremap <Space>w :w<cr>
 
