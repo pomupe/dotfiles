@@ -218,6 +218,21 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
+# Surroundings
+[[plugins]]
+repo = 'rhysd/vim-operator-surround'
+depends = ['vim-operator-user']
+hook_add = '''
+  " vim-operator-surround key mappings
+  map <silent> <Space>sa <Plug>(operator-surround-append)
+  map <silent> <Space>sd <Plug>(operator-surround-delete)
+  map <silent> <Space>sr <Plug>(operator-surround-replace)
+'''
+
+# Define youre own operator easily
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
 # Open URI with browser
 [[plugins]]
 repo = 'tyru/open-browser.vim'
