@@ -272,4 +272,9 @@ on_ft = ['sh']
 repo = 'nelstrom/vim-textobj-rubyblock'
 on_ft = ['ruby']
 
+## Python
+[[plugins]]
+repo = 'bps/vim-textobj-python'
+on_ft = ['python']
+
 # vim: foldmethod=marker
