@@ -198,7 +198,13 @@ nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearc
 " Language {{{
 "" Ruby
 " Add '?' to keywords
-autocmd MyAutoCmd FileType ruby setl iskeyword+=?
+autocmd MyAutoCmd FileType ruby setlocal iskeyword+=?
+
+"" Markdown
+autocmd MyAutoCmd FileType markdown setlocal shiftwidth=4 tabstop=4
+
+"" Python
+autocmd MyAutoCmd FileType python setlocal shiftwidth=4 tabstop=4
 " }}}
 
 " Windows {{{
