@@ -233,6 +233,15 @@ hook_add = '''
   " }}}
 '''
 
+# Filer
+[[plugins]]
+repo = 'Shougo/vimfiler.vim'
+depends = ['unite.vim']
+hook_add = '''
+  " Set vimfiler as the default explorer
+  let g:vimfiler_as_default_explorer = 1
+'''
+
 # Define youre own operator easily
 [[plugins]]
 repo = 'kana/vim-operator-user'
