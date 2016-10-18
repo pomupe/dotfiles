@@ -48,6 +48,7 @@ autocmd MyAutoCmd VimEnter * call dein#call_hook('post_source')
 " General {{{
 " Enable indent for specific file types
 filetype indent on
+filetype plugin on
 
 " Set to auto road when a file is changed from the outside
 set autoread
