@@ -20,7 +20,7 @@ hook_add = '''
 # Unite: search and display arbitrary sources
 [[plugins]]
 repo = 'Shougo/unite.vim'
-depends = 'neomru.vim'
+depends = ['neomru.vim']
 hook_add = '''
   " Unite key mappings {{{
   " Start unite in insert mode immediately
@@ -283,7 +283,7 @@ on_ft = ['markdown']
 
 [[plugins]]
 repo = 'kannokanno/previm'
-depends = 'open-browser.vim'
+depends = ['open-browser.vim']
 if = 'has("win32") || has("win64")'
 on_ft = ['markdown']
 hook_add = '''
