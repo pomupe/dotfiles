@@ -153,7 +153,7 @@ hook_add = '''
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    " autocmd FileType python setlocal omnifunc=python3complete#Complete
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
   augroup END
 
@@ -170,11 +170,13 @@ hook_add = '''
   "\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
   "let g:neocomplete#sources#omni#input_patterns.cpp =
   "\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+  let g:neocomplete#force_omni_input_patterns.python = ''
 
   " For perlomni.vim setting.
   " https://github.com/c9s/perlomni.vim
   let g:neocomplete#sources#omni#input_patterns.perl =
   \ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+
 
   " For smart TAB completion.
   "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
@@ -309,16 +311,26 @@ on_ft = ['ruby']
 # Text object
 repo = 'bps/vim-textobj-python'
 depends = ['vim-textobj-user']
-on_ft = ['python']
+on_ft = ['python', 'python3']
 
 # Vim's indentation behavior to comply with PEP8
 [[plugins]]
 repo = 'hynek/vim-python-pep8-indent'
-on_ft = ['python']
+on_ft = ['python', 'python3']
 
 # Static code analysis
 [[plugins]]
 repo = 'alfredodeza/khuno.vim'
-on_ft = ['python']
+on_ft = ['python', 'python3']
+
+# Autocompletion
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = ['python', 'python3']
+hook_add = '''
+  augroup JediAutoCmd
+    autocmd FileType python setlocal completeopt-=preview
+  augroup END
+'''
 
 # vim: foldmethod=marker
