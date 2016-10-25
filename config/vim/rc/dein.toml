@@ -321,12 +321,14 @@ on_ft = ['python', 'python3']
 # Static code analysis
 [[plugins]]
 repo = 'alfredodeza/khuno.vim'
+if = 'has("unix")'
 on_ft = ['python', 'python3']
 
 # Autocompletion
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = ['python', 'python3']
+if = 'has("unix")'
 hook_add = '''
   augroup JediAutoCmd
     autocmd FileType python setlocal completeopt-=preview
