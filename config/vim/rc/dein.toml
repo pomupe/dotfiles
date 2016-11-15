@@ -5,8 +5,8 @@ repo = 'Shougo/dein.vim'
 # Colorscheme
 [[plugins]]
 repo = 'jpo/vim-railscasts-theme'
-hook_add = '''
-  " autocmd MyAutoCmd VimEnter * nested colorscheme railscasts
+hook_post_source = '''
+  colorscheme railscasts
   "" Set background color to red when IME is Japanese
   "if has('multi_byte_ime') || has('xim')
   "  autocmd MyAutoCmd VimEnter * nested highlight CursorIM guibg=Red guifg=NONE
@@ -56,7 +56,7 @@ on_path = '.*'
 # Git wrapper
 [[plugins]]
 repo =  'tpope/vim-fugitive'
-hook_add = '''
+hook_post_source = '''
   " Status line setup {{{
   " Always show the status line
   set laststatus=2

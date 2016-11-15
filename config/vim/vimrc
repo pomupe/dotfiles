@@ -41,7 +41,7 @@ if has('vim_starting')
   endif
 endif
 
-" lazyプラグインがvim起動時にsourceされてしまう場合(on_ft対象のファイルを開くときなど)でも hook_post_source が機能するようにする
+" Call hook_post_source in vim Initializing.
 autocmd MyAutoCmd VimEnter * call dein#call_hook('post_source')
 " }}}
 
@@ -49,9 +49,6 @@ autocmd MyAutoCmd VimEnter * call dein#call_hook('post_source')
 " Enable indent for specific file types
 filetype indent on
 filetype plugin on
-
-" Change colorscheme
-colorscheme railscasts
 
 " Set to auto road when a file is changed from the outside
 set autoread
