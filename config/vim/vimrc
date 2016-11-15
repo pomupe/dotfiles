@@ -50,6 +50,9 @@ autocmd MyAutoCmd VimEnter * call dein#call_hook('post_source')
 filetype indent on
 filetype plugin on
 
+" Change colorscheme
+colorscheme railscasts
+
 " Set to auto road when a file is changed from the outside
 set autoread
 
