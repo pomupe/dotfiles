@@ -17,4 +17,11 @@ if not exist %HOMEPATH%\.gitconfig.user (
   echo "Edit your name and email in ~/.gitconfig.user"
 )
 
+: VimFx
+if not exist %HOMEPATH%\.config\vimfx\ (
+  mkdir %HOMEPATH%\.config\vimfx
+)
+copy %HOMEPATH%\.dotfiles\config\vimfx\config.js %HOMEPATH%\.config\vimfx\config.js
+copy %HOMEPATH%\.dotfiles\config\vimfx\frame.js %HOMEPATH%\.config\vimfx\frame.js
+
 echo "Finish deployment"
