@@ -320,9 +320,12 @@ on_ft = ['python', 'python3']
 
 # Static code analysis
 [[plugins]]
-repo = 'alfredodeza/khuno.vim'
+repo = 'w0rp/ale'
 if = 'has("unix")'
 on_ft = ['python', 'python3']
+hook_add = '''
+  let g:ale_sign_column_always = 1
+'''
 
 # Autocompletion
 [[plugins]]
