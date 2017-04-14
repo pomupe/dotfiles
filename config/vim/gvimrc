@@ -1,5 +1,5 @@
-" Use the Ricty to font, height is 12pt, width is 6pt, character set Default
-set guifont=Ricty:h12:w6:cDEFAULT
+" Use the Ricty to font, height is 14pt, width is 7pt, character set Default
+set guifont=Ricty:h14:w7:cDEFAULT
 " Remove toolbar
 set guioptions-=T
 " Repair a garbled menu
