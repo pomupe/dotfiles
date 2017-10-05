@@ -19,6 +19,7 @@ Preferences.set({
   // Force enable e10s
   'extensions.e10sBlockedByAddons': false,
   'extensions.e10sBlocksEnabling': false,
+  'dom.ipc.processCount': 4,
 });
 
 // Add search engines to bookmarks
