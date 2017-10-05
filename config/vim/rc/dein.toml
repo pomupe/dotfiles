@@ -264,7 +264,7 @@ hook_add = '''
 # Seemless navigation between tmux panes and vim splits
 [[plugins]]
 repo = 'christoomey/vim-tmux-navigator'
-if = 'has("unix")'
+if = 'has("unix") && !has("win32unix")'
 #hook_add = '''
 #  nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 #'''
@@ -321,7 +321,7 @@ on_ft = ['python', 'python3']
 # Static code analysis
 [[plugins]]
 repo = 'w0rp/ale'
-if = 'has("unix")'
+if = 'has("unix") && !has("win32unix")'
 on_ft = ['python', 'python3']
 hook_add = '''
   let g:ale_sign_column_always = 1
@@ -331,7 +331,7 @@ hook_add = '''
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = ['python', 'python3']
-if = 'has("unix")'
+if = 'has("unix") && !has("win32unix")'
 hook_add = '''
   augroup JediAutoCmd
     autocmd FileType python setlocal completeopt-=preview
