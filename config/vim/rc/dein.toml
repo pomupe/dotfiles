@@ -286,6 +286,9 @@ on_ft = ['toml']
 [[plugins]]
 repo = 'tpope/vim-markdown'
 on_ft = ['markdown']
+hook_add = '''
+  let g:vim_markdown_conceal = 0
+'''
 
 [[plugins]]
 repo = 'kannokanno/previm'
