@@ -188,6 +188,9 @@ autocmd MyAutoCmd FileType markdown setlocal shiftwidth=4 tabstop=4
 
 "" Python
 autocmd MyAutoCmd FileType python setlocal shiftwidth=4 tabstop=4
+
+"" LaTex
+let g:tex_conceal = ''
 " }}}
 
 " Windows {{{
