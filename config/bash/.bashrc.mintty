@@ -1,0 +1,13 @@
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUPSTREAM=auto
+
+# run ssh-agent
+SSH_AGENT_FILE=$HOMEPATH/.ssh-agent
+test -f $SSH_AGENT_FILE && source $SSH_AGENT_FILE
+if ! ssh-add -l > /dev/null 2>&1; then
+    ssh-agent > $SSH_AGENT_FILE
+    source $SSH_AGENT_FILE
+    ssh-add $HOMEPATH/.ssh/id_ed25519
+fi

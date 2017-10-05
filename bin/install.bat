@@ -1,6 +1,6 @@
 @echo off
 : Vim
-mklink %HOMEPATH%\_vimrc %HOMEPATH%\.dotfiles\config\vim\vimrc
+mklink %HOMEPATH%\_vimrc  %HOMEPATH%\.dotfiles\config\vim\vimrc
 mklink %HOMEPATH%\_gvimrc %HOMEPATH%\.dotfiles\config\vim\gvimrc
 if not exist %HOMEPATH%\.vim\rc\ (
   mkdir %HOMEPATH%\.vim\rc
@@ -23,5 +23,8 @@ if not exist %HOMEPATH%\.config\vimfx\ (
 )
 copy %HOMEPATH%\.dotfiles\config\vimfx\config.js %HOMEPATH%\.config\vimfx\config.js
 copy %HOMEPATH%\.dotfiles\config\vimfx\frame.js %HOMEPATH%\.config\vimfx\frame.js
+
+: bash
+mklink %HOMEPATH%\.bashrc %HOMEPATH%\.dotfiles\config\bash\.bashrc.mintty
 
 echo "Finish deployment"
