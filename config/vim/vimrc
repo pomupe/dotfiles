@@ -26,21 +26,6 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
-" Automatically install and update plugins
-if has('vim_starting')
-  let s:dein_last_update_marker = g:dein#_base_path . '/last_update_maker'
-  " Install new plugins
-  if dein#check_install()
-    call dein#install()
-    call writefile([strftime('%s')], s:dein_last_update_marker)
-  endif
-  " Update plugins regulary
-  if getftime(s:dein_last_update_marker) < strftime('%s') - 3600 * 24 * 7
-    call dein#update()
-    call writefile([strftime('%s')], s:dein_last_update_marker)
-  endif
-endif
-
 " Call hook_post_source in vim Initializing.
 autocmd MyAutoCmd VimEnter * call dein#call_hook('post_source')
 " }}}
