@@ -82,9 +82,10 @@ hook_post_source = '''
 '''
 
 # Completion
+# For Vim
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
-if = 'has("lua")'
+if = 'has("vim") && has("lua")'
 on_i = 1
 hook_add = '''
   " neocomplete configuration {{{
@@ -187,6 +188,15 @@ hook_add = '''
   "    return !col || getline('.')[col - 1]  =~ '\s'
   "  endfunction"
   " }}}
+'''
+# For Nvim
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = 'has("nvim") && has("python3")'
+on_i = 1
+hook_add = '''
+  " Use deoplete
+  let g:deoplete#enable_at_startup = 1
 '''
 
 # Snippet
@@ -331,14 +341,23 @@ hook_add = '''
 '''
 
 # Autocompletion
+# For Vim
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = ['python', 'python3']
-if = 'has("unix") && !has("win32unix")'
+if = 'has("unix") && !has("nvim") && !has("win32unix")'
 hook_add = '''
   augroup JediAutoCmd
     autocmd FileType python setlocal completeopt-=preview
   augroup END
+'''
+
+# For Nvim
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+on_ft = ['python3']
+if = 'has("nvim") && has("python3")'
+hook_add = '''
 '''
 
 # vim: foldmethod=marker
