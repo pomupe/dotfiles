@@ -4,8 +4,12 @@ VIM_DIR=${CONFIG_DIR}/vim
 GIT_DIR=${CONFIG_DIR}/git
 TMUX_DIR=${CONFIG_DIR}/tmux
 
-# Vim
+# Vim and Neovim
 ln -s ${VIM_DIR}/vimrc        ~/.vimrc
+if [ ! -e ~/.config/nvim ]; then
+  mkdir -p ~/.config/nvim
+fi
+ln -s ${VIM_DIR}/vimrc        ~/.config/nvim/init.vim
 if [ ! -e ~/.vim/rc ]; then
   mkdir -p ~/.vim/rc
 fi
