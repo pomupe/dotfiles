@@ -355,9 +355,7 @@ hook_add = '''
 # For Nvim
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
-on_ft = ['python3']
+on_ft = ['python', 'python3']
 if = 'has("nvim") && has("python3")'
-hook_add = '''
-'''
 
 # vim: foldmethod=marker
