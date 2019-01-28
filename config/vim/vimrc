@@ -57,6 +57,9 @@ set wildmode=longest,list,full
 " Ignore case of completing in wild menu
 set wildignorecase
 
+" Disable conceal
+set conceallevel=0
+
 " Show command in the status line
 set showcmd
 
