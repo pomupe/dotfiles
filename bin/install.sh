@@ -19,6 +19,7 @@ ln -s ${VIM_DIR}/rc/dein.toml ~/.vim/rc/dein.toml
 ln -s ${GIT_DIR}/gitignore               ~/.gitignore
 ln -s ${GIT_DIR}/gitconfig               ~/.gitconfig
 ln -s ${GIT_DIR}/gitconfig.linux         ~/.gitconfig.os
+ln -s ${GIT_DIR}/gitmessage.txt          ~/.gitmessage.txt
 if [ ! -f ~/.gitconfig.user ]; then
   cp    ${GIT_DIR}/gitconfig.user.template ~/.gitconfig.user
   echo "Create ~/.gitconfig.user"
