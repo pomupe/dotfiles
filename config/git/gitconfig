@@ -3,6 +3,8 @@
   path = .gitconfig.os
 [push]
   default = simple
+[commit]
+  template = ~/.gitmessage.txt
 [core]
   excludesfile = ~/.gitignore
 [merge]
