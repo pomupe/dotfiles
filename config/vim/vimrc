@@ -2,7 +2,7 @@
 " Disable vi compatibility
 if &compatible | set nocompatible | endif
 
- " Reset autocmd
+" Reset autocmd
 augroup MyAutoCmd
   autocmd!
 augroup END
