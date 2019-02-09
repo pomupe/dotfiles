@@ -1,13 +1,13 @@
-[include]
-  path = .gitconfig.user
-  path = .gitconfig.os
-[push]
-  default = simple
 [commit]
   template = ~/.gitmessage.txt
 [core]
   excludesfile = ~/.gitignore
+[include]
+  path = .gitconfig.user
+  path = .gitconfig.os
 [merge]
   ff = false
 [pull]
   ff = only
+[push]
+  default = simple
