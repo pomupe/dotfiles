@@ -2,6 +2,8 @@
   template = ~/.gitmessage.txt
 [core]
   excludesfile = ~/.gitignore
+[ghq]
+  root = ~/.go/src
 [include]
   path = .gitconfig.user
   path = .gitconfig.os
