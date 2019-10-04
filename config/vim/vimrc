@@ -200,7 +200,7 @@ let g:tex_conceal = ''
 " }}}
 
 " Windows {{{
-if has("win32") || has("win64")
+if has("win32") || has("win64") || has("mac")
   " Share the clipboard and * register
   set clipboard+=unnamed
   " Automatically set the fileencoding from those found in the beginning
