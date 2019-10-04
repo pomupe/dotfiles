@@ -261,7 +261,7 @@ repo = 'kana/vim-operator-user'
 # Open URI with browser
 [[plugins]]
 repo = 'tyru/open-browser.vim'
-if = 'has("win32") || has("win64")'
+if = 'has("win32") || has("win64") || has("mac")'
 hook_add = '''
   " Open-browser key mappings {{{
   " disable netrw's gx mapping.
@@ -303,7 +303,7 @@ hook_add = '''
 [[plugins]]
 repo = 'kannokanno/previm'
 depends = ['open-browser.vim']
-if = 'has("win32") || has("win64")'
+if = 'has("win32") || has("win64") || has("mac")'
 on_ft = ['markdown']
 hook_add = '''
   nnoremap <Space>p :PrevimOpen<cr>
