@@ -2,6 +2,7 @@
 CONFIG_DIR=~/.dotfiles/config
 VIM_DIR=${CONFIG_DIR}/vim
 GIT_DIR=${CONFIG_DIR}/git
+SSH_DIR=${CONFIG_DIR}/ssh
 TMUX_DIR=${CONFIG_DIR}/tmux
 
 # Vim and Neovim
@@ -25,6 +26,9 @@ if [ ! -f ~/.gitconfig.user ]; then
   echo "Create ~/.gitconfig.user"
   echo "Edit your name and email in ~/.gitconfig.user"
 fi
+
+# ssh
+ln -s ${SSH_DIR}/rc ~/.ssh/rc
 
 # tmux
 ln -s ${TMUX_DIR}/tmux.conf ~/.tmux.conf
