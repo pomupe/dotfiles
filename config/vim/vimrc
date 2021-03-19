@@ -206,6 +206,15 @@ if has("win32") || has("win64") || has("mac")
   " Automatically set the fileencoding from those found in the beginning
   set fileencodings=ucs-bom,iso-2022-jp,utf-8,cp932,euc-jp,utf-16le,utf-16be,latin1
 endif
+
+" Share clipboard between Windows and vim
+if system('uname -a | grep -i microsoft') != ''
+  set clipboard+=unnamedplus
+  augroup WSLYank
+    autocmd!
+    autocmd TextYankPost * :call system('clip.exe', @")
+  augroup END
+endif
 " }}}
 
 " vim: foldmethod=marker
