@@ -5,8 +5,8 @@ repo = 'Shougo/dein.vim'
 # Colorscheme
 [[plugins]]
 repo = 'jpo/vim-railscasts-theme'
-hook_post_source = '''
-  colorscheme railscasts
+hook_add = '''
+  autocmd MyAutoCmd VimEnter * nested colorscheme railscasts
   "" Set background color to red when IME is Japanese
   "if has('multi_byte_ime') || has('xim')
   "  autocmd MyAutoCmd VimEnter * nested highlight CursorIM guibg=Red guifg=NONE
@@ -17,46 +17,10 @@ hook_post_source = '''
 # [[plugins]]
 # repo = 'tomasr/molokai'
 
-# Unite: search and display arbitrary sources
-[[plugins]]
-repo = 'Shougo/unite.vim'
-depends = ['neomru.vim']
-hook_add = '''
-  " Unite key mappings {{{
-  " Start unite in insert mode immediately
-  let g:unite_enable_start_insert=1
-  " Set <Space>u as Unite prefix key
-  nnoremap [unite]  <Nop>
-  nmap     <Space>u [unite]
-  " Display buffers when [unite]b is pressed
-  nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-  " Display files and buffers when [unite]f is pressed
-  nnoremap <silent> [unite]f :<C-u>Unite file buffer<CR>
-  " Display MRU files when [unite]m is pressed
-  nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
-  " Create new file or directory with unite when [unite]n is pressed
-  nnoremap <silent> [unite]n :<C-u>Unite file/new<CR>
-  " Display registers when [unite]r is pressed
-  nnoremap <silent> [unite]r :<C-u>Unite register<CR>
-  " Exit the unite buffer when <Esc><Esc> is pressed
-  augroup UniteAutoCmd
-    autocmd!
-    autocmd FileType unite nnoremap <silent> <buffer> <Esc><Esc> :q<CR>
-    autocmd FileType unite inoremap <silent> <buffer> <Esc><Esc> <Esc>:q<CR>
-    autocmd FileType unite imap     <silent> <buffer> <C-l>      <Plug>(unite_complete)
-  augroup END
-  " }}}
-'''
-
-# Unite MRU sources
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-on_path = '.*'
-
 # Git wrapper
 [[plugins]]
 repo =  'tpope/vim-fugitive'
-hook_post_source = '''
+hook_add = '''
   " Status line setup {{{
   " Always show the status line
   set laststatus=2
@@ -81,155 +45,6 @@ hook_post_source = '''
   " }}}
 '''
 
-# Completion
-# For Vim
-[[plugins]]
-repo = 'Shougo/neocomplete.vim'
-if = 'has("vim") && has("lua")'
-on_i = 1
-hook_add = '''
-  " neocomplete configuration {{{
-  " See also : https://github.com/Shougo/neocomplete.vim
-  " Disable AutoComplPop.
-  let g:acp_enableAtStartup = 0
-
-  " Use neocomplete.
-  let g:neocomplete#enable_at_startup = 1
-
-  " Use smartcase.
-  let g:neocomplete#enable_smart_case = 1
-  let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-  " Enable camel case completion
-  let g:neocomplete#enable_underbar_completion = 1
-
-  " Define dictionary.
-  let g:neocomplete#sources#dictionary#dictionaries = {
-      \ 'default' : '',
-      \ }
-
-  " Define keyword.
-  if !exists('g:neocomplete#keyword_patterns')
-      let g:neocomplete#keyword_patterns = {}
-  endif
-  let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-  " Plugin key-mappings.
-  inoremap <expr><C-g>     neocomplete#undo_completion()
-  inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-  " Recommended key-mappings.
-  " <CR>: close popup and save indent.
-  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-  function! s:my_cr_function()
-    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-    " For no inserting <CR> key.
-    "return pumvisible() ? "\<C-y>" : "\<CR>"
-  endfunction
-
-  " <TAB>: completion.
-  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-  " <C-h>, <BS>: close popup and delete backword char.
-  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-
-  " Close popup by <Space>.
-  "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-  " AutoComplPop like behavior.
-  "let g:neocomplete#enable_auto_select = 1
-
-  " Shell like behavior (not recommended.)
-  "set completeopt+=longest
-  "let g:neocomplete#enable_auto_select = 1
-  "let g:neocomplete#disable_auto_complete = 1
-  "inoremap <expr><TAB>  pumvisible() ? "\<Down>" :
-  " \ neocomplete#start_manual_complete()
-
-  " Enable omni completion.
-  augroup NeocompleteAutoCmd
-    autocmd!
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    " autocmd FileType python setlocal omnifunc=python3complete#Complete
-    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-  augroup END
-
-  " Enable heavy omni completion.
-  if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-  endif
-  if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-  endif
-  "let g:neocomplete#sources#omni#input_patterns.php =
-  "\ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-  "let g:neocomplete#sources#omni#input_patterns.c =
-  "\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
-  "let g:neocomplete#sources#omni#input_patterns.cpp =
-  "\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-  let g:neocomplete#force_omni_input_patterns.python = ''
-
-  " For perlomni.vim setting.
-  " https://github.com/c9s/perlomni.vim
-  let g:neocomplete#sources#omni#input_patterns.perl =
-  \ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-
-
-  " For smart TAB completion.
-  "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
-  "        \ <SID>check_back_space() ? "\<TAB>" :
-  "        \ neocomplete#start_manual_complete()
-  "  function! s:check_back_space() "
-  "    let col = col('.') - 1
-  "    return !col || getline('.')[col - 1]  =~ '\s'
-  "  endfunction"
-  " }}}
-'''
-# For Nvim
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-if = 'has("nvim") && has("python3")'
-on_i = 1
-hook_add = '''
-  " Use deoplete
-  let g:deoplete#enable_at_startup = 1
-'''
-
-# Snippet
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-depends = ['neosnippet-snippets']
-on_i = 1
-on_ft = ['snippet']
-hook_add = '''
-  " Neosnippet key mappings {{{
-  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-  " SuperTab like snippets behavior.
-  imap <expr><TAB>
-   \ pumvisible() ? "\<C-n>" :
-   \ neosnippet#expandable_or_jumpable() ?
-   \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-  " For conceal markers.
-  if has('conceal')
-    set conceallevel=2 concealcursor=niv
-  endif
-  " }}}
-'''
-
-# Default snippet files
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
 # Surroundings
 [[plugins]]
 repo = 'rhysd/vim-operator-surround'
@@ -243,15 +58,6 @@ hook_add = '''
   map <silent> [Surround]d <Plug>(operator-surround-delete)
   map <silent> [Surround]r <Plug>(operator-surround-replace)
   " }}}
-'''
-
-# Filer
-[[plugins]]
-repo = 'Shougo/vimfiler.vim'
-depends = ['unite.vim']
-hook_add = '''
-  " Set vimfiler as the default explorer
-  let g:vimfiler_as_default_explorer = 1
 '''
 
 # Define youre own operator easily
@@ -330,32 +136,5 @@ on_ft = ['python', 'python3']
 [[plugins]]
 repo = 'hynek/vim-python-pep8-indent'
 on_ft = ['python', 'python3']
-
-# Static code analysis
-[[plugins]]
-repo = 'w0rp/ale'
-if = 'has("unix") && !has("win32unix")'
-on_ft = ['python', 'python3']
-hook_add = '''
-  let g:ale_sign_column_always = 1
-'''
-
-# Autocompletion
-# For Vim
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-on_ft = ['python', 'python3']
-if = 'has("unix") && !has("nvim") && !has("win32unix")'
-hook_add = '''
-  augroup JediAutoCmd
-    autocmd FileType python setlocal completeopt-=preview
-  augroup END
-'''
-
-# For Nvim
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-on_ft = ['python', 'python3']
-if = 'has("nvim") && has("python3")'
 
 # vim: foldmethod=marker
