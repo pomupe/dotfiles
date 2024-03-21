@@ -13,3 +13,5 @@
   ff = only
 [push]
   default = simple
+[init]
+  defaultBranch = main
