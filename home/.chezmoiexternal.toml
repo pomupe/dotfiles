@@ -1,0 +1,13 @@
+{{- $nuScriptsPath := "" -}}
+{{- if eq .chezmoi.os "windows" -}}
+{{-   $nuScriptsPath = "AppData/Roaming/nushell/nu_scripts" -}}
+{{- else -}}
+{{-   $nuScriptsPath = ".config/nushell/nu_scripts" -}}
+{{- end -}}
+
+["{{ $nuScriptsPath }}"]
+    type = "archive"
+    url = "https://github.com/nushell/nu_scripts/archive/main.tar.gz"
+    exact = true
+    stripComponents = 1 # remove "nu_scripts-main" dir
+    refreshPeriod = "168h" # 1 week
