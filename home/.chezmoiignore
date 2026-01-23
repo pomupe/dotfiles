@@ -3,5 +3,6 @@ Appdata/*
 {{ end }}
 
 {{ if ne .chezmoi.os "linux" }}
-.config/*
+.config/nushell
+.config/nvim
 {{ end }}
