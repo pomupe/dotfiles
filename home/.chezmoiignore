@@ -1,7 +1,7 @@
-{{ if eq .chezmoi.os "windows" }}
-.config/*
+{{ if ne .chezmoi.os "windows" }}
+Appdata/*
 {{ end }}
 
-{{ if eq .chezmoi.os "linux" }}
-Appdata/*
+{{ if ne .chezmoi.os "linux" }}
+.config/*
 {{ end }}
