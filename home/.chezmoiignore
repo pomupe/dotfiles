@@ -1,5 +1,6 @@
 {{ if ne .chezmoi.os "windows" }}
-Appdata/*
+AppData
+AppData/*
 {{ end }}
 
 {{ if ne .chezmoi.os "linux" }}
