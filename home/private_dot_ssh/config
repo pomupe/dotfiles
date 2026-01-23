@@ -1,0 +1,12 @@
+Include ~/.ssh/config.d/work
+
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_personal.pub
+
+# Default
+Host *
+  IdentitiesOnly yes
+  ServerAliveInterval 60
+  ServerAliveCountMax 30
