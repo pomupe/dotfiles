@@ -20,6 +20,9 @@
 # Path
 use std/util "path add"
 path add "~/.bun/bin"
+if $nu.os-info.name == "linux" {
+    path add "~/.asdf/shims"
+}
 
 # Editor
 $env.config.buffer_editor = "nvim"
@@ -31,4 +34,36 @@ if $nu.os-info.name == "windows" {
     $env.NU_LIB_DIRS = "~/AppData/Roaming/nushell/nu_scripts"
 } else {
     $env.NU_LIB_DIRS = "~/.config/nushell/nu_scripts"
+}
+
+# For WSL
+if $nu.os-info.name == "linux" {
+    # Use system default certificates
+    $env.SSL_CERT_FILE = "/etc/ssl/certs/ca-certificates.crt"
+    # Enable wsl2-ssh-agent
+    $env.SSH_AUTH_SOCK = ($env.XDG_RUNTIME_DIR | path join "wsl2-ssh-agent.sock")
+
+    # Enable hoembrew
+    let brew_home = "/home/linuxbrew/.linuxbrew"
+    $env.HOMEBREW_PREFIX = $brew_home
+    $env.HOMEBREW_CELLAR = ($brew_home | path join "Cellar")
+    $env.HOMEBREW_REPOSITORY = ($brew_home | path join "Homebrew")
+    path add ($brew_home | path join "sbin")
+    path add ($brew_home | path join "bin")
+    let brew_man = ($brew_home | path join "share" "man")
+    $env.MANPATH = (
+        $env.MANPATH? 
+        | default "" 
+        | split row (char esep) 
+        | where $it != ""
+        | prepend $brew_man
+    )
+    let brew_info = ($brew_home | path join "share" "info")
+    $env.INFOPATH = (
+        $env.INFOPATH? 
+        | default "" 
+        | split row (char esep) 
+        | where $it != ""
+        | prepend $brew_info
+    )
 }
