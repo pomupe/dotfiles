@@ -23,6 +23,47 @@
 alias core-ls = ls
 alias ls = eza
 
+alias core-which = which
+# Finds a program file, alias, or custom command.
+#
+# This is a wrapper around `core-which` to fix an issue where
+# certain external commands (like rustup/bat) appear with an empty path.
+def which [
+    --all (-a)          # Output all matches, not just the first one
+    --help (-h)         # Display the help message
+    ...applications: string # The commands to search for
+]: [ nothing -> table ] {
+    if $help {
+        return (core-which --help)
+    }
+    if $all {
+        if ($applications | is-empty) {
+            return (core-which --all)
+        } else {
+            return ($applications | each {|cmd| core-which --all $cmd} | flatten)
+        }
+    }
+    if ($applications | is-empty) {
+        return (core-which)
+    }
+
+    return ($applications
+        | each {|cmd|
+            let result = (core-which --all $cmd)
+            if ($result | is-empty) or ($result | length) == 1 {
+                $result
+            } else if ($result | get 0.type) != "external" {
+                ($result | select 0)
+            } else if ($result | get 0.path | is-not-empty) {
+                ($result | select 0)
+            } else {
+                ($result | select 1)
+            }
+        }
+        | flatten
+    )
+}
+
 ##########
 # completions
 ##########
