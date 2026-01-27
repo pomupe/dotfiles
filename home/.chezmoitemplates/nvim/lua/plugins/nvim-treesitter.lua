@@ -23,7 +23,6 @@ return {
             "python",
             "regex",
             "requirements",
-            "rust",
             "scss",
             "ssh_config",
             "toml",

@@ -5,7 +5,6 @@ return {
             "lua-language-server",
             "markdown-oxide",
             "ruff",
-            "rust-analyzer",
             "tombi",
             "ty",
         },
