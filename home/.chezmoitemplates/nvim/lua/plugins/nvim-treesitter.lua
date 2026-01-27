@@ -20,7 +20,6 @@ return {
             "markdown_inline",
             "mermaid",
             "nu",
-            "python",
             "regex",
             "requirements",
             "scss",

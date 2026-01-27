@@ -13,3 +13,6 @@ opt.smoothscroll = false
 opt.tabstop = 4
 opt.wildignorecase = true
 opt.wrap = true
+
+-- For LazyVim Extras
+vim.g.lazyvim_python_lsp = "ty"
