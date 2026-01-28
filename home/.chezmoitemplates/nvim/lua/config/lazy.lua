@@ -21,6 +21,7 @@ require("lazy").setup({
         -- add LazyVim Extras
         { import = "lazyvim.plugins.extras.lang.python" },
         { import = "lazyvim.plugins.extras.lang.rust" },
+        { import = "lazyvim.plugins.extras.util.chezmoi" },
         -- import/override with your plugins
         { import = "plugins" },
     },
