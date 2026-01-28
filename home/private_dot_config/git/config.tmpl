@@ -1,33 +1,33 @@
 [core]
-	autocrlf = input
-	quotepath = false
+    autocrlf = input
+    quotepath = false
 {{- if eq .chezmoi.os "windows" }}
     excludesfile = ~/.config/git/ignore.windows
-	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+    sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
 {{- else if eq .chezmoi.os "linux" }}
     excludesfile = ~/.config/git/ignore.linux
 {{- end }}
 
 [user]
     signingkey = ~/.ssh/id_personal_sign.pub
-	name = pomupe
-	email = 2258971+pomupe@users.noreply.github.com
+    name = pomupe
+    email = 2258971+pomupe@users.noreply.github.com
 
 [pull]
-	ff = only
+    ff = only
 
 [push]
     default = simple
 
 [merge]
-	ff = false
+    ff = false
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
 
 [commit]
     gpgsign = true
-	template = ~/.config/git/message
+    template = ~/.config/git/message
 
 [gpg]
     format = ssh
