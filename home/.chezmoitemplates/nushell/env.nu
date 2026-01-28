@@ -24,6 +24,14 @@ if $nu.os-info.name == "linux" {
     path add "~/.asdf/shims"
 }
 
+# XDG Base Directory
+if $nu.os-info.name == "linux" {
+    $env.XDG_CONFIG_HOME = "~/.config"
+    $env.XDG_CACHE_HOME = "~/.cache"
+    $env.XDG_DATA_HOME = "~/.local/share"
+    $env.XDG_STATE_HOME = "~/.local/state"
+}
+
 # Editor
 $env.config.buffer_editor = "nvim"
 $env.EDITOR = "nvim"
@@ -31,9 +39,9 @@ $env.VISUAL = "nvim"
 
 # Modules
 if $nu.os-info.name == "windows" {
-    $env.NU_LIB_DIRS = "~/AppData/Roaming/nushell/nu_scripts"
+    $env.NU_LIB_DIRS = [($env.APPDATA | path join "nushell" "nu_scripts")]
 } else {
-    $env.NU_LIB_DIRS = "~/.config/nushell/nu_scripts"
+    $env.NU_LIB_DIRS = [($env.XDG_CONFIG_HOME | path join "nushell" "nu_scripts")]
 }
 
 # For WSL
