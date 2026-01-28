@@ -26,10 +26,10 @@ if $nu.os-info.name == "linux" {
 
 # XDG Base Directory
 if $nu.os-info.name == "linux" {
-    $env.XDG_CONFIG_HOME = "~/.config"
-    $env.XDG_CACHE_HOME = "~/.cache"
-    $env.XDG_DATA_HOME = "~/.local/share"
-    $env.XDG_STATE_HOME = "~/.local/state"
+    $env.XDG_CONFIG_HOME = ("~/.config" | path expand)
+    $env.XDG_CACHE_HOME = ("~/.cache" | path expand)
+    $env.XDG_DATA_HOME = ("~/.local/share" | path expand)
+    $env.XDG_STATE_HOME = ("~/.local/state" | path expand)
 }
 
 # Editor
