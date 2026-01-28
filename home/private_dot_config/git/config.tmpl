@@ -9,6 +9,7 @@
 {{- end }}
 
 [user]
+    signingkey = ~/.ssh/id_personal_sign.pub
 	name = pomupe
 	email = 2258971+pomupe@users.noreply.github.com
 
@@ -25,4 +26,13 @@
 	defaultBranch = main
 
 [commit]
+    gpgsign = true
 	template = ~/.config/git/message
+
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    allowedSigners = ~/.ssh/allowed_signers
+{{- if eq .chezmoi.os "windows" }}
+    program = C:/Windows/System32/OpenSSH/ssh-keygen.exe
+{{- end }}
