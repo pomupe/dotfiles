@@ -10,3 +10,4 @@ Host *
     IdentitiesOnly yes
     ServerAliveInterval 60
     ServerAliveCountMax 30
+    ObscureKeystrokeTiming no
