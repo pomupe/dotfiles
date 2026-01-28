@@ -3,7 +3,7 @@ Include ~/.ssh/config.d/work
 Host github.com
     HostName github.com
     User git
-    IdentityFile ~/.ssh/id_personal.pub
+    IdentityFile ~/.ssh/id_personal_auth.pub
     Compression yes
 
 # Default
