@@ -4,6 +4,7 @@ Host github.com
     HostName github.com
     User git
     IdentityFile ~/.ssh/id_personal.pub
+    Compression yes
 
 # Default
 Host *
