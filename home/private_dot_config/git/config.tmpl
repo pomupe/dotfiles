@@ -32,7 +32,7 @@
 [gpg]
     format = ssh
 [gpg "ssh"]
-    allowedSigners = ~/.ssh/allowed_signers
+    allowedSignersFile = ~/.ssh/allowed_signers
 {{- if eq .chezmoi.os "windows" }}
     program = C:/Windows/System32/OpenSSH/ssh-keygen.exe
 {{- end }}
