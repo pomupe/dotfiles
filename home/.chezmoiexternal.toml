@@ -2,7 +2,7 @@
 {{- if eq .chezmoi.os "windows" -}}
 {{-   $nuScriptsPath = "AppData/Roaming/nushell/nu_scripts" -}}
 {{- else -}}
-{{-   $nuScriptsPath = ".config/nushell/nu_scripts" -}}
+{{-   $nuScriptsPath = ".local/share/nushell/nu_scripts" -}}
 {{- end -}}
 
 ["{{ $nuScriptsPath }}"]

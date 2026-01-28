@@ -67,17 +67,17 @@ def which [
 ##########
 # completions
 ##########
-use nu_scripts/custom-completions/bat/bat-completions.nu *
-use nu_scripts/custom-completions/cargo/cargo-completions.nu *
-use nu_scripts/custom-completions/curl/curl-completions.nu *
-use nu_scripts/custom-completions/eza/eza-completions.nu *
-use nu_scripts/custom-completions/git/git-completions.nu *
-use nu_scripts/custom-completions/just/just-completions.nu *
-use nu_scripts/custom-completions/less/less-completions.nu *
-use nu_scripts/custom-completions/rg/rg-completions.nu *
-use nu_scripts/custom-completions/rustup/rustup-completions.nu *
-use nu_scripts/custom-completions/scoop/scoop-completions.nu *
-use nu_scripts/custom-completions/ssh/ssh-completions.nu *
-use nu_scripts/custom-completions/uv/uv-completions.nu *
-use nu_scripts/custom-completions/winget/winget-completions.nu *
-use nu_scripts/custom-completions/zoxide/zoxide-completions.nu *
+use custom-completions/bat/bat-completions.nu *
+use custom-completions/cargo/cargo-completions.nu *
+use custom-completions/curl/curl-completions.nu *
+use custom-completions/eza/eza-completions.nu *
+use custom-completions/git/git-completions.nu *
+use custom-completions/just/just-completions.nu *
+use custom-completions/less/less-completions.nu *
+use custom-completions/rg/rg-completions.nu *
+use custom-completions/rustup/rustup-completions.nu *
+use custom-completions/scoop/scoop-completions.nu *
+use custom-completions/ssh/ssh-completions.nu *
+use custom-completions/uv/uv-completions.nu *
+use custom-completions/winget/winget-completions.nu *
+use custom-completions/zoxide/zoxide-completions.nu *

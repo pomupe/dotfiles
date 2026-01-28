@@ -41,7 +41,7 @@ $env.VISUAL = "nvim"
 if $nu.os-info.name == "windows" {
     $env.NU_LIB_DIRS = [($env.APPDATA | path join "nushell" "nu_scripts")]
 } else {
-    $env.NU_LIB_DIRS = [($env.XDG_CONFIG_HOME | path join "nushell" "nu_scripts")]
+    $env.NU_LIB_DIRS = [($env.XDG_DATA_HOME | path join "nushell" "nu_scripts")]
 }
 
 # For WSL
