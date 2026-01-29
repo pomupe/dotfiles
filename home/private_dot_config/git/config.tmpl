@@ -36,3 +36,6 @@
 {{- if eq .chezmoi.os "windows" }}
     program = C:/Windows/System32/OpenSSH/ssh-keygen.exe
 {{- end }}
+
+[includeIf "gitdir:~/Projects/Work/"]
+    path = ~/.config/git/config.d/work
