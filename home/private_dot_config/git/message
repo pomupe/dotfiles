@@ -1,5 +1,5 @@
 # ------ Commit Message Guidelines ------
-# Each commit message consists type, subject and body:
+# Each commit message consists of type, subject and body:
 # <type>(<scope>)!: <subject> (72 characters maximum)
 # <BLANK LINE>
 # <body>
@@ -9,15 +9,15 @@
 # Must be one of the following:
 # - feat:     A new feature.
 # - fix:      A bug fix.
-# - build:    Changes affecting the build system or external dependencies.
-# - ci:       Changes to our CI configuration files or scripts.
-# - test:     Adding or updating tests.
+# - build:    Changes to the build system or external dependencies.
+# - ci:       Changes to CI configuration files or scripts.
+# - test:     Adding missing tests or correcting existing tests.
 # - docs:     Documentation changes.
 # - refactor: Code refactoring (neither fixes a bug nor adds a feature).
 # - perf:     Performance improvements.
 # - style:    Code style changes (formatting, missing semi-colons, etc.).
-# - chore:    Routine tasks like updating dependencies or build tools.
-# - revert:   Reverting commit made previously
+# - chore:    Maintenance tasks like updating dependencies, configs, or tooling.
+# - revert:   Reverting a previous commit.
 #
 # The scope describes a section of the codebase where this change is applied and is optional.
 # Note that allowed content of this section depends on the specific project.
