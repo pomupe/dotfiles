@@ -17,6 +17,9 @@
 # You can remove these comments if you want or leave
 # them for future reference.
 
+# Nushell
+$env.config.show_banner = false
+
 # Path
 use std/util "path add"
 path add "~/.bun/bin"
