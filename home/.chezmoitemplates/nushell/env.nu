@@ -27,7 +27,7 @@ if $nu.os-info.name == "linux" {
     path add "~/.asdf/shims"
 }
 
-# XDG Base Directory
+# XDG base directory
 if $nu.os-info.name == "linux" {
     $env.XDG_CONFIG_HOME = ("~/.config" | path expand)
     $env.XDG_CACHE_HOME = ("~/.cache" | path expand)
@@ -46,6 +46,9 @@ if $nu.os-info.name == "windows" {
 } else {
     $env.NU_LIB_DIRS ++= [($env.XDG_DATA_HOME | path join "nushell" "nu_scripts")]
 }
+
+# Generate mise module
+^mise activate nu | save ($nu.default-config-dir | path join "scripts" "mise.nu") --force
 
 # For WSL
 if $nu.os-info.name == "linux" {

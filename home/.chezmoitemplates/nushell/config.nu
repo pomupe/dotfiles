@@ -65,7 +65,12 @@ def which [
 }
 
 ##########
-# completions
+# Modules
+##########
+use mise.nu
+
+##########
+# Completions
 ##########
 use custom-completions/bat/bat-completions.nu *
 use custom-completions/cargo/cargo-completions.nu *
