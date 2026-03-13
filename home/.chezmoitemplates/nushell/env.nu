@@ -47,9 +47,6 @@ if $nu.os-info.name == "windows" {
     $env.NU_LIB_DIRS ++= [($env.XDG_DATA_HOME | path join "nushell" "nu_scripts")]
 }
 
-# Generate mise module
-^mise activate nu | save ($nu.default-config-dir | path join "scripts" "mise.nu") --force
-
 # For WSL
 if $nu.os-info.name == "linux" {
     # Use system default certificates
@@ -81,3 +78,6 @@ if $nu.os-info.name == "linux" {
         | prepend $brew_info
     )
 }
+
+# Generate mise module
+^mise activate nu | save ($nu.default-config-dir | path join "scripts" "mise.nu") --force
