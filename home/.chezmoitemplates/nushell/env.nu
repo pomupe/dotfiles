@@ -23,9 +23,6 @@ $env.config.show_banner = false
 # Path
 use std/util "path add"
 path add "~/.bun/bin"
-if $nu.os-info.name == "linux" {
-    path add "~/.asdf/shims"
-}
 
 # XDG base directory
 if $nu.os-info.name == "linux" {
